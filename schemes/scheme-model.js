@@ -6,7 +6,8 @@ findById,
 findSteps,
 add,
 update,
-remove
+remove,
+addStep
 }
 
 function find() {
@@ -36,4 +37,9 @@ function update(changes, id) {
 
 function remove(id) {
 return db('schemes').where({id}).delete()
+}
+
+function addStep(step, scheme_id) {
+    step = { ...step, scheme_id: scheme_id }
+    return db('steps').insert(step)
 }
