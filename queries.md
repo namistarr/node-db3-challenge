@@ -1,6 +1,6 @@
 # Database Queries
 
-### Display the ProductName and CategoryName for all products in the database. Shows 76 records.
+### Display the ProductName and CategoryName for all products in the database. Shows 77 records.
 select ProductName, CategoryName from Products as p 
 join Categories as c 
 on p.CategoryID = c.CategoryID;
