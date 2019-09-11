@@ -1,12 +1,25 @@
 # Database Queries
 
-### Display the ProductName and CategoryName for all products in the database. Shows 76 records.
+### Display the ProductName and CategoryName for all products in the database. Shows 77 records.
+select ProductName, CategoryName from Products as p 
+join Categories as c 
+on p.CategoryID = c.CategoryID;
 
 ### Display the OrderID and ShipperName for all orders placed before January 9, 1997. Shows 161 records.
+select OrderID, ShipperName from Orders 
+left join Shippers on Orders.ShipperID = Shippers.ShipperID 
+where Orders.OrderDate < '1997-01-09';
 
 ### Display all ProductNames and Quantities placed on order 10251. Sort by ProductName. Shows 3 records.
+select ProductName, Quantity, OrderID from OrderDetails
+join Products on OrderDetails.ProductID = Products.ProductID 
+where OrderDetails.OrderID = 10251 
+order by Products.ProductName;
 
 ### Display the OrderID, CustomerName and the employee's LastName for every order. All columns should be labeled clearly. Displays 196 records.
+select OrderID, CustomerName, LastName from Orders 
+join Customers on Orders.CustomerID = Customers.CustomerID 
+join Employees on Orders.EmployeeID = Employees.EmployeeID;
 
 ### (Stretch)  Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 9 records.
 
